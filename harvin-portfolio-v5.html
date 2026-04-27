@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harvin Patel — Supply Chain & Operations Professional</title>
+
+<style>
+  :root {
+    --bg: #0d0d14;
+    --bg2: #12121c;
+    --bg3: #171722;
+    --surface: #1e1e2e;
+    --surface2: #26263a;
+    --border: rgba(255,255,255,0.13);
+    --orange: #fb8c3a;
+    --orange-dim: rgba(249,115,22,0.15);
+    --orange-glow: rgba(249,115,22,0.08);
+    --teal: #2dd4bf;
+    --teal-dim: rgba(20,184,166,0.12);
+    --white: #f5f2ee;
+    --muted: #b8b6ca;
+    --muted2: #9290a8;
+    --text: #eceaf5;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-logo span { color: var(--orange); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--orange); }
+
+  .nav-cta {
+    background: var(--orange);
+    color: #000 !important;
+    padding: 0.45rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 500 !important;
+    transition: opacity 0.2s !important;
+  }
+
+  .nav-cta:hover { opacity: 0.85; color: #000 !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid-lines { display: none; } @media (min-width: 901px) { .hero-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 0%, transparent 100%);
+  } }
+
+  .hero-orb {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    top: -200px;
+    right: -150px;
+    background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-orb2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    bottom: -100px;
+    left: 10%;
+    background: radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.84rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: var(--orange-dim);
+    border: 1px solid rgba(249,115,22,0.25);
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--orange);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  h1 {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+
+  h1 .italic-name {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--orange);
+    font-weight: 400;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin: 1.2rem 0 2rem;
+    max-width: 520px;
+    line-height: 1.6;
+  }
+
+  .hero-subtitle strong { color: var(--teal); font-weight: 500; }
+
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .pill {
+    font-size: 0.86rem;
+    font-weight: 500;
+    padding: 0.35rem 0.9rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: var(--surface);
+    letter-spacing: 0.02em;
+  }
+
+  .pill.accent { border-color: rgba(249,115,22,0.3); color: var(--orange); background: var(--orange-dim); }
+  .pill.teal { border-color: rgba(20,184,166,0.3); color: var(--teal); background: var(--teal-dim); }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--orange);
+    color: #000;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.96rem;
+    font-weight: 500;
+    padding: 0.75rem 1.7rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover { background: #ea6c0f; transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.96rem;
+    font-weight: 500;
+    padding: 0.75rem 1.7rem;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 200px;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--orange), transparent);
+  }
+
+  .stat-num {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.3rem;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 3rem; }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 40px;
+    height: 1px;
+    background: var(--orange);
+    opacity: 0.4;
+  }
+
+  h2 {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--white);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+  }
+
+  h2 em {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--orange);
+    font-weight: 400;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--bg2); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--text);
+    margin-bottom: 1.2rem;
+    font-size: 0.97rem;
+    line-height: 1.8;
+  }
+
+  .about-text p strong { color: var(--text); font-weight: 500; }
+
+  .about-text p .highlight {
+    color: var(--orange);
+    font-weight: 500;
+  }
+
+  .about-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: var(--surface);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .info-icon {
+    font-size: 1.1rem;
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+  }
+
+  .info-label {
+    font-size: 0.81rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted2);
+    margin-bottom: 0.15rem;
+  }
+
+  .info-value {
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  .info-value a { color: var(--orange); text-decoration: none; }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--bg); }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .edu-card:hover { border-color: rgba(249,115,22,0.3); }
+
+  .edu-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--orange), var(--teal));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .edu-card:hover::after { opacity: 1; }
+
+  .edu-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.81rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: var(--orange-dim);
+    border: 1px solid rgba(249,115,22,0.2);
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    margin-bottom: 1.2rem;
+  }
+
+  .edu-school {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+
+  .edu-degree {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.8rem;
+  }
+
+  .edu-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.86rem;
+    color: var(--muted2);
+  }
+
+  .edu-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .edu-gpa {
+    margin-top: 1rem;
+    display: inline-block;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--teal);
+  }
+
+  .edu-gpa-label {
+    font-size: 0.81rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--bg2); }
+
+  .exp-timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--orange), transparent);
+  }
+
+  .exp-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+  }
+
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 0.55rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    box-shadow: 0 0 0 3px var(--bg2), 0 0 0 5px rgba(249,115,22,0.2);
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .exp-role {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--white);
+  }
+
+  .exp-company {
+    font-size: 0.96rem;
+    color: var(--orange);
+    margin-top: 0.15rem;
+  }
+
+  .exp-date {
+    font-size: 0.84rem;
+    color: var(--muted);
+    white-space: nowrap;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .exp-bullets li {
+    font-size: 0.96rem;
+    color: var(--text);
+    line-height: 1.7;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-size: 0.84rem;
+  }
+
+  .exp-bullets li strong { color: var(--text); font-weight: 500; }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .exp-tag {
+    font-size: 0.81rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    background: var(--surface2);
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  /* ── ACHIEVEMENTS ── */
+  #achievements { background: var(--bg); }
+
+  .achieve-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .achieve-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.8rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .achieve-card:hover {
+    border-color: rgba(249,115,22,0.3);
+    transform: translateY(-3px);
+  }
+
+  .achieve-card.gold {
+    border-color: rgba(251,191,36,0.3);
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(251,191,36,0.05) 100%);
+  }
+
+  .achieve-card.gold::before {
+    content: '🏆';
+    position: absolute;
+    top: 1.2rem; right: 1.2rem;
+    font-size: 1.3rem;
+  }
+
+  .achieve-title {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    padding-right: 2rem;
+  }
+
+  .achieve-org {
+    font-size: 0.86rem;
+    color: var(--orange);
+    margin-bottom: 0.8rem;
+  }
+
+  .achieve-desc {
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--bg2); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.8rem;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    border-color: rgba(20,184,166,0.3);
+    transform: translateY(-3px);
+  }
+
+  .project-num {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--surface2);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .project-title {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .project-desc {
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 1.2rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .project-tag {
+    font-size: 0.81rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    background: var(--teal-dim);
+    color: var(--teal);
+    border: 1px solid rgba(20,184,166,0.2);
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--bg); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .skill-group-title {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.86rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    margin-bottom: 1rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.93rem;
+    color: var(--text);
+  }
+
+  .skill-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+  }
+
+  .skill-dot.teal { background: var(--teal); }
+
+  /* ── CERTIFICATIONS ── */
+  #certifications { background: var(--bg2); }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .cert-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.4rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.3s;
+  }
+
+  .cert-card:hover { border-color: rgba(249,115,22,0.3); }
+
+  .cert-icon {
+    width: 40px; height: 40px;
+    background: var(--orange-dim);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .cert-name {
+    font-size: 0.96rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.15rem;
+  }
+
+  .cert-issuer {
+    font-size: 0.84rem;
+    color: var(--muted);
+  }
+
+  /* ── RECOMMENDATIONS ── */
+  #recommendations { background: var(--bg); }
+
+  .rec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .rec-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .rec-card:hover { border-color: rgba(249,115,22,0.2); }
+
+  .rec-quote {
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--orange);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+    margin-bottom: 0.5rem;
+  }
+
+  .rec-text {
+    font-size: 0.96rem;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .rec-author {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .rec-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--teal));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 0.93rem;
+    color: #000;
+    flex-shrink: 0;
+  }
+
+  .rec-name {
+    font-size: 0.96rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .rec-role {
+    font-size: 0.84rem;
+    color: var(--muted);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--bg2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contact::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(249,115,22,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .contact-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+
+  .contact-inner h2 { margin-bottom: 1rem; }
+
+  .contact-sub {
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: 6px;
+    font-size: 0.96rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: var(--surface);
+  }
+
+  .contact-link:hover { color: var(--white); border-color: rgba(255,255,255,0.2); transform: translateY(-2px); }
+  .contact-link.primary { background: var(--orange); color: #000; border-color: var(--orange); }
+  .contact-link.primary:hover { background: #ea6c0f; border-color: #ea6c0f; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.86rem;
+    color: var(--muted2);
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .fade-in-disabled {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in-disabled.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  @media (max-width: 900px) {
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: rgba(13,13,20,0.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 1rem 1.5rem 1.5rem;
+      gap: 0.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links.nav-open { display: flex; }
+    .nav-links a { font-size: 0.9rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+    .nav-links li:last-child a { border-bottom: none; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    /* NAV */
+    nav { padding: 0.9rem 1.2rem; }
+    .nav-links { display: none; }
+    .nav-logo { font-size: 1rem; }
+    .nav-cta { padding: 0.35rem 0.9rem; font-size: 0.8rem !important; }
+
+    /* SECTIONS */
+    section { padding: 3rem 1.2rem; }
+    #hero { padding: 5.5rem 1.2rem 3rem; min-height: auto; }
+
+    /* HERO */
+    .hero-content { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-orb { width: 300px; height: 300px; top: -80px; right: -80px; }
+    .hero-orb2 { display: none; }
+    h1 { font-size: clamp(2rem, 9vw, 3rem); }
+    .hero-subtitle { font-size: 0.95rem; }
+    .hero-pills { gap: 0.4rem; }
+    .pill { font-size: 0.74rem; padding: 0.28rem 0.7rem; }
+    .hero-stats { flex-direction: row; flex-wrap: wrap; justify-content: center; min-width: auto; gap: 0.7rem; }
+    .stat-card { min-width: 140px; flex: 1; padding: 1rem; }
+    .stat-num { font-size: 1.6rem; }
+    .hero-actions { gap: 0.7rem; }
+    .btn-primary, .btn-ghost { font-size: 0.82rem; padding: 0.65rem 1.2rem; }
+
+    /* ABOUT */
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+    /* EDUCATION */
+    .edu-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+    /* EXPERIENCE */
+    .exp-timeline { padding-left: 1rem; }
+    .exp-item { padding-left: 1.2rem; }
+    .exp-header { flex-direction: column; gap: 0.4rem; }
+    .exp-date { align-self: flex-start; }
+
+    /* ACHIEVEMENTS */
+    .achieve-grid { grid-template-columns: 1fr; }
+
+    /* PROJECTS */
+    .projects-grid { grid-template-columns: 1fr; }
+
+    /* SKILLS */
+    .skills-grid { grid-template-columns: 1fr; }
+
+    /* CERTS */
+    .cert-grid { grid-template-columns: 1fr; }
+
+    /* RECOMMENDATIONS */
+    .rec-grid { grid-template-columns: 1fr; }
+
+    /* INLINE GRIDS in new sections */
+    [style*="grid-template-columns:1fr 1fr"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns:repeat(2,1fr)"],
+    [style*="grid-template-columns: repeat(2, 1fr)"],
+    [style*="grid-template-columns:repeat(4,1fr)"],
+    [style*="grid-template-columns:repeat(5,1fr)"] {
+      grid-template-columns: 1fr !important;
+    }
+    [style*="grid-template-columns:repeat(3,1fr)"] {
+      grid-template-columns: 1fr 1fr !important;
+    }
+
+    /* CASE STUDY stats bar */
+    [style*="grid-template-columns:repeat(4,1fr)"],
+    [style*="grid-template-columns:repeat(5,1fr)"] {
+      grid-template-columns: 1fr 1fr !important;
+    }
+
+    /* SECTION headings */
+    h2 { font-size: clamp(1.5rem, 6vw, 2rem); margin-bottom: 2rem; }
+
+    /* CONTACT */
+    .contact-links { flex-direction: column; align-items: center; }
+    .contact-link { width: 100%; justify-content: center; max-width: 320px; }
+
+    /* FOOTER */
+    footer { flex-direction: column; gap: 0.4rem; text-align: center; padding: 1.5rem 1.2rem; font-size: 0.75rem; }
+
+    /* JUDGES strip in nexus — stack */
+    [style*="display:flex;align-items:center;gap:1rem;flex-wrap:wrap"] {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 0.5rem !important;
+    }
+
+    /* Nexus what-I-built 2col → 1col */
+    .nexus-inner-grid { grid-template-columns: 1fr !important; }
+  }
+
+  @media (max-width: 480px) {
+    nav { padding: 0.8rem 1rem; }
+    section { padding: 2.5rem 1rem; }
+    #hero { padding: 5rem 1rem 2.5rem; }
+    h1 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+    .hero-stats { gap: 0.5rem; }
+    .stat-card { min-width: 120px; padding: 0.8rem; }
+    .stat-num { font-size: 1.4rem; }
+    .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Harvin<span>.</span></div>
+  <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#achievements">Wins</a></li>
+    <li><a href="#recommendations">Recs</a></li>
+    <li><a href="#casestudy">Echo Case</a></li>
+    <li><a href="#nexus">Nexus</a></li>
+    <li><a href="#buildathon">Build-A-Thon</a></li>
+    <li><a href="#transcript">Academics</a></li>
+    <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-lines"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-tag">STEM-OPT Eligible · Open to Work</div>
+      <h1>
+        Supply Chain &<br>
+        <span class="italic-name">Operations</span><br>
+        Professional
+      </h1>
+      <p class="hero-subtitle">
+        <strong>Chemical Engineer turned Business Strategist.</strong><br>
+        MS Technology Management @ Gies, UIUC · 4+ years of real-world operations, GTM, and marketing analytics experience. I sit at the intersection of <strong>technical precision</strong> and <strong>market execution</strong>.
+      </p>
+      <div class="hero-pills">
+        <span class="pill accent">Supply Chain Analytics</span>
+        <span class="pill teal">Operations Management</span>
+        <span class="pill accent">Technical Marketing</span>
+        <span class="pill">GTM Strategy</span>
+        <span class="pill accent">Project Nexus Organiser</span>
+        <span class="pill teal">Gies Build-A-Thon · Market Matrix AI</span>
+        <span class="pill">Salesforce · Power BI</span>
+        <span class="pill">Six Sigma Black Belt</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">↗ Let's Connect</a>
+        <a href="harvin_resume.pdf" target="_blank" class="btn-ghost">⬇ Download Resume</a>
+        <a href="https://linkedin.com/in/harvinpatel" target="_blank" class="btn-ghost">LinkedIn →</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">3.9</div>
+        <div class="stat-label">GPA · Gies UIUC</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">#1</div>
+        <div class="stat-label">Echo Logistics + Nexus Organiser</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Years Industry Exp.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">$1K+</div>
+        <div class="stat-label">Sponsorship Secured</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">01 — About</div>
+    <h2>The ChemE who went to <em>business school</em> on purpose</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a chemical engineer who chose to go to business school — not because engineering wasn't interesting, but because <strong>the most unsolved problems live at the intersection of the two.</strong></p>
+        <p>I spent <strong>4+ years — juggled alongside my undergraduate degree</strong> — supporting real business operations at a B2B manufacturing and trading firm part-time. Managing vendor relationships, tracking inventory across product lines, analysing sales data, and building a client pipeline using AI-scraped market data. Not a simulation. <span class="highlight">Real decisions with real consequences, while simultaneously sitting exams.</span></p>
+        <p>At Gies (University of Illinois Urbana-Champaign), I'm completing my MS in Technology Management — with coursework in Operations, Negotiations, and Supply Chain. In March 2026, my team placed <strong>1st at the Gies Supply Chain Case Competition</strong> (Echo Global Logistics), analyzing 22,000+ rows of operational data under competition pressure.</p>
+        <p>Beyond competing, I <strong>organised Project Nexus</strong> — Gies's first interdisciplinary case competition — building the full Walmart drone-delivery scenario from scratch (10 teams, $15M budget, 4 faculty judges). I'm targeting roles in <strong>Supply Chain Analytics, Operations, Technical Marketing, and Marketing Analytics</strong> — anywhere that needs someone who can talk to an engineer in the morning and present to a VP in the afternoon.</p>
+        <p>Currently based in Champaign, IL. <span class="highlight">STEM-OPT eligible — 3 years U.S. work authorization.</span> Open to relocation.</p>
+      </div>
+      <div class="about-right">
+        <div class="info-row">
+          <div class="info-icon">🎓</div>
+          <div>
+            <div class="info-label">Education</div>
+            <div class="info-value">MS Technology Management, Gies · UIUC (3.9 GPA)</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">⚗️</div>
+          <div>
+            <div class="info-label">Background</div>
+            <div class="info-value">BTech Chemical Engineering, Nirma University (3.75 GPA)</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label">Location</div>
+            <div class="info-value">Champaign, IL · Open to relocation</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">🛂</div>
+          <div>
+            <div class="info-label">Work Authorization</div>
+            <div class="info-value">STEM-OPT eligible (3 years, no H-1B sponsorship needed until ~2029)</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📧</div>
+          <div>
+            <div class="info-label">Email</div>
+            <div class="info-value">harvinpatel@gmail.com</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📱</div>
+          <div>
+            <div class="info-label">Phone</div>
+            <div class="info-value">+1 (217) 550-1402</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-label">02 — Education</div>
+    <h2>Where the <em>technical</em> meets the strategic</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-badge">🔬 STEM Designated</div>
+        <div class="edu-school">University of Illinois Urbana-Champaign</div>
+        <div class="edu-degree">Master of Science · Technology Management<br><small style="color: var(--muted2)">Gies College of Business</small></div>
+        <div class="edu-meta">
+          <span>📅 Aug 2025 – May 2026</span>
+          <span>📍 Champaign, IL</span>
+        </div>
+        <div class="edu-gpa">3.9 <span style="font-size:0.9rem;color:var(--muted)">/4.0</span></div>
+        <div class="edu-gpa-label">GPA</div>
+        <div style="margin-top:1rem; font-size:0.8rem; color:var(--muted); line-height:1.6">
+          Coursework: Operations Management · Negotiations · Supply Chain Strategy · Technology & Innovation Management
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-badge">⚗️ Chemical Engineering</div>
+        <div class="edu-school">Nirma University</div>
+        <div class="edu-degree">Bachelor of Technology · Chemical Engineering<br><small style="color: var(--muted2)">Ahmedabad, Gujarat, India</small></div>
+        <div class="edu-meta">
+          <span>📅 May 2021 – May 2025</span>
+          <span>📍 Ahmedabad, India</span>
+        </div>
+        <div class="edu-gpa">3.75 <span style="font-size:0.9rem;color:var(--muted)">/4.0</span></div>
+        <div class="edu-gpa-label">GPA</div>
+        <div style="margin-top:1rem; font-size:0.8rem; color:var(--muted); line-height:1.6">
+          General Secretary, ChESA · IIChE Member · Led flagship department event with $1,150+ in secured sponsorships
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">03 — Experience</div>
+    <h2>4+ years of <em>real</em> business operations</h2>
+    <div class="exp-timeline">
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Operations, Marketing & GTM Associate</div>
+            <div class="exp-company">Om Neelkanth Enterprises · B2B Manufacturing & Trading · Ahmedabad, India</div>
+          </div>
+          <div class="exp-date">Mar 2021 – Jul 2025 · 4+ yrs · Part-time alongside BTech</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Built a B2B client pipeline by leveraging <strong>AI-scraped IndiaMART data</strong> for targeted cold outreach — driving profitable sales across <strong>6 PVA product grades</strong></li>
+          <li>Managed end-to-end logistics and inventory across multiple product lines — overseeing transportation, warehousing, and stock control to maintain fulfillment reliability</li>
+          <li>Served as primary vendor/supplier contact for <strong>pricing negotiations, purchase coordination, and availability planning</strong> — directly supporting margin objectives</li>
+          <li>Maintained financial records in Tally (vouchers, transactions, audit documentation) supporting accurate accounting across 4+ years of business operations</li>
+          <li>Analyzed sales, order, and inventory data to support <strong>sales and margin objectives</strong> across assigned product lines</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Supply Chain</span>
+          <span class="exp-tag">Inventory Management</span>
+          <span class="exp-tag">Vendor Relations</span>
+          <span class="exp-tag">GTM</span>
+          <span class="exp-tag">B2B Sales Ops</span>
+          <span class="exp-tag">Tally ERP</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">General Secretary</div>
+            <div class="exp-company">ChESA – Nirma University · Chemical Engineering Students' Association</div>
+          </div>
+          <div class="exp-date">Oct 2023 – Oct 2024 · 1 yr 1 mo</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Secured <strong>INR 96,000 (~USD 1,150) in corporate sponsorships</strong> for AARAMBH — ChESA's flagship annual event — through targeted stakeholder outreach and negotiation with 10+ companies</li>
+          <li>Directed cross-functional teams across marketing, logistics, design, and communications for large-scale technical events with <strong>300+ student participants</strong></li>
+          <li>Oversaw full event lifecycle — budgeting, vendor coordination, day-of execution — delivering events on time and within scope across a 12-month tenure</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Event Management</span>
+          <span class="exp-tag">Sponsorship Negotiation</span>
+          <span class="exp-tag">Team Leadership</span>
+          <span class="exp-tag">Cross-functional</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Operations & Market Analysis Intern</div>
+            <div class="exp-company">Vidhi Enterprises · Surgical Cotton Manufacturing · Dholka, Gujarat</div>
+          </div>
+          <div class="exp-date">May 2024 – Jun 2024 · 2 mos</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Mapped end-to-end production workflow for a surgical cotton manufacturing facility — from raw material intake to finished goods — identifying key operational bottlenecks</li>
+          <li>Analyzed workforce allocation and supply chain dynamics across the production floor; surfaced recommendations to plant management</li>
+          <li>Documented demand-supply trends in the medical textile segment to support product positioning insights</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Operations Analysis</span>
+          <span class="exp-tag">Market Research</span>
+          <span class="exp-tag">Supply Chain</span>
+          <span class="exp-tag">Manufacturing</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Marketing & Growth Operations Lead</div>
+            <div class="exp-company">Megabits Advertisements · Marketing & Data Solutions · Ahmedabad</div>
+          </div>
+          <div class="exp-date">May 2023 – Jul 2023 · 3 mos</div>
+        </div>
+        <ul class="exp-bullets">
+          <li><strong>Promoted to Team Lead mid-internship</strong> based on individual performance — managed a team of 20 to execute lead generation campaigns for Megabits' app/website platform</li>
+          <li>Analyzed campaign performance metrics and engagement trends; built tracking dashboards to support weekly optimization decisions</li>
+          <li>Developed lead qualification frameworks to improve conversion pipeline accuracy and reduce unqualified lead volume</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Lead Generation</span>
+          <span class="exp-tag">Campaign Analytics</span>
+          <span class="exp-tag">Marketing Ops</span>
+          <span class="exp-tag">Team Management</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-inner">
+    <div class="section-label">04 — Achievements</div>
+    <h2>Competitive wins & <em>notable</em> moments</h2>
+    <div class="achieve-grid">
+
+      <div class="achieve-card gold">
+        <div class="achieve-title">1st Place — Gies Supply Chain Case Competition</div>
+        <div class="achieve-org">Echo Global Logistics · Gies College of Business, UIUC · 2026</div>
+        <div class="achieve-desc">Developed and presented a data-driven strategic solution analyzing <strong>22,000+ rows of operational data</strong> under competition pressure. Focused on executive-ready recommendations emphasizing usability, stakeholder alignment, and actionable simplicity over technical complexity.</div>
+      </div>
+
+      <div class="achieve-card">
+        <div class="achieve-title">$1,150 Corporate Sponsorship Secured</div>
+        <div class="achieve-org">AARAMBH — ChESA Flagship Event · Nirma University · 2023</div>
+        <div class="achieve-desc">Personally led outreach and negotiation with 10+ companies to secure INR 96,000 in sponsorships for the Chemical Engineering department's flagship annual event. Delivered full event logistics within budget.</div>
+      </div>
+
+      <div class="achieve-card">
+        <div class="achieve-title">Promoted to Team Lead Mid-Internship</div>
+        <div class="achieve-org">Megabits Advertisements · 2023</div>
+        <div class="achieve-desc">Recognized for performance within the first weeks of an internship. Took on management of a 20-person team executing lead generation campaigns, demonstrating leadership capability under real business conditions.</div>
+      </div>
+
+      <div class="achieve-card">
+        <div class="achieve-title">3.9 GPA — MS Technology Management</div>
+        <div class="achieve-org">Gies College of Business, UIUC · 2025–2026</div>
+        <div class="achieve-desc">Maintaining a 3.9/4.0 GPA in a STEM-designated graduate program covering Operations Management, Negotiations, Supply Chain Strategy, and Technology & Innovation Management.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label">05 — Projects</div>
+    <h2>Where I've done the <em>work</em></h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-num">01</div>
+        <div class="project-title">Supply Chain Optimization — Echo Global Logistics (Case Competition)</div>
+        <div class="project-desc">Analyzed 22,000+ rows of operational logistics data to develop a strategic recommendation for Echo Global Logistics. Built executive-ready narrative focused on reducing friction in freight brokerage operations. Presented to a panel of industry judges — placed 1st out of all competing graduate teams at Gies.</div>
+        <div class="project-tags">
+          <span class="project-tag">Excel / Power BI</span>
+          <span class="project-tag">Data Analysis</span>
+          <span class="project-tag">Supply Chain</span>
+          <span class="project-tag">Exec Presentation</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">02</div>
+        <div class="project-title">B2B Client Pipeline — AI-Driven GTM Strategy</div>
+        <div class="project-desc">Designed and executed a data-driven GTM approach for Om Neelkanth Enterprises using AI-scraped IndiaMART data. Built targeting lists, scripted outreach sequences, and tracked conversion across 6 PVA product grades. Directly contributed to revenue growth through improved pipeline visibility and vendor-client matching.</div>
+        <div class="project-tags">
+          <span class="project-tag">GTM Strategy</span>
+          <span class="project-tag">CRM / Salesforce</span>
+          <span class="project-tag">B2B Outreach</span>
+          <span class="project-tag">Data Scraping</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">03</div>
+        <div class="project-title">AARAMBH — Large-Scale Academic Event (300+ Attendees)</div>
+        <div class="project-desc">Planned and executed ChESA's flagship annual conference from end to end — team organization, sponsorship acquisition, marketing coordination, vendor management, and day-of operations. Managed cross-functional teams across 6 sub-departments. Delivered within scope and budget on a 3-month timeline.</div>
+        <div class="project-tags">
+          <span class="project-tag">Event Management</span>
+          <span class="project-tag">Sponsorship</span>
+          <span class="project-tag">Team Leadership</span>
+          <span class="project-tag">Marketing</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">04</div>
+        <div class="project-title">Operations & Workflow Analysis — Surgical Cotton Plant</div>
+        <div class="project-desc">Conducted a systematic operational review of a surgical cotton manufacturing facility. Mapped the full production workflow, identified bottlenecks, and analyzed workforce allocation. Delivered findings as an executive-ready operations brief with prioritized improvement recommendations for plant management.</div>
+        <div class="project-tags">
+          <span class="project-tag">Operations Analysis</span>
+          <span class="project-tag">Manufacturing</span>
+          <span class="project-tag">Process Mapping</span>
+          <span class="project-tag">Supply Chain</span>
+        </div>
+      </div>
+
+    </div>
+    <p style="margin-top:2rem; font-size:0.82rem; color:var(--muted); text-align:center;">
+      📎 Have detailed decks and reports available on request — reach out via the contact section below.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">06 — Skills</div>
+    <h2>The toolkit — <em>technical</em> and strategic</h2>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <div class="skill-group-title">⛓ Supply Chain & Operations</div>
+        <div class="skill-list">
+          <div class="skill-item"><div class="skill-dot"></div>Supply Chain Management</div>
+          <div class="skill-item"><div class="skill-dot"></div>Inventory Planning & Control</div>
+          <div class="skill-item"><div class="skill-dot"></div>Vendor & Supplier Relations</div>
+          <div class="skill-item"><div class="skill-dot"></div>Demand-Supply Forecasting</div>
+          <div class="skill-item"><div class="skill-dot"></div>Operations Management</div>
+          <div class="skill-item"><div class="skill-dot"></div>Logistics Coordination</div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">📈 Marketing & GTM</div>
+        <div class="skill-list">
+          <div class="skill-item"><div class="skill-dot teal"></div>Go-To-Market Strategy</div>
+          <div class="skill-item"><div class="skill-dot teal"></div>Technical Marketing</div>
+          <div class="skill-item"><div class="skill-dot teal"></div>Funnel & Campaign Analysis</div>
+          <div class="skill-item"><div class="skill-dot teal"></div>Product-Marketing-Sales Alignment</div>
+          <div class="skill-item"><div class="skill-dot teal"></div>Content & Asset Planning</div>
+          <div class="skill-item"><div class="skill-dot teal"></div>KPI Tracking & Reporting</div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">🛠 Tools & Technology</div>
+        <div class="skill-list">
+          <div class="skill-item"><div class="skill-dot"></div>Salesforce CRM</div>
+          <div class="skill-item"><div class="skill-dot"></div>Power BI</div>
+          <div class="skill-item"><div class="skill-dot"></div>Advanced Excel (Dashboards, Pivots)</div>
+          <div class="skill-item"><div class="skill-dot"></div>PowerPoint</div>
+          <div class="skill-item"><div class="skill-dot"></div>Tally ERP</div>
+          <div class="skill-item"><div class="skill-dot"></div>Google Workspace</div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">🎯 Business Competencies</div>
+        <div class="skill-list">
+          <div class="skill-item"><div class="skill-dot teal"></div>Negotiations</div>
+          <div class="skill-item"><div class="skill-dot teal"></div>Stakeholder Management</div>
+          <div class="skill-item"><div class="skill-dot teal"></div>Cross-functional Collaboration</div>
+          <div class="skill-item"><div class="skill-dot teal"></div>Data-Driven Decision Making</div>
+          <div class="skill-item"><div class="skill-dot teal"></div>Project Coordination</div>
+          <div class="skill-item"><div class="skill-dot teal"></div>Executive Communication</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-label">07 — Certifications</div>
+    <h2>Credentials that <em>matter</em></h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-icon">☁️</div>
+        <div>
+          <div class="cert-name">Salesforce Essential Training</div>
+          <div class="cert-issuer">LinkedIn Learning · Dec 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">⚙️</div>
+        <div>
+          <div class="cert-name">Six Sigma: Black Belt</div>
+          <div class="cert-issuer">LinkedIn Learning · 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div>
+          <div class="cert-name">Advanced Excel & Power BI</div>
+          <div class="cert-issuer">In-practice · Dashboards & Pivot Analysis</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🔬</div>
+        <div>
+          <div class="cert-name">BTech Chemical Engineering</div>
+          <div class="cert-issuer">Nirma University · May 2025 · GPA 3.75</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section id="recommendations">
+  <div class="section-inner">
+    <div class="section-label">08 — Recommendations</div>
+    <h2>What people <em>say</em></h2>
+    <div class="rec-grid">
+
+      <!-- REAL: Mike Szymanski -->
+      <div class="rec-card" style="border-color:rgba(249,115,22,0.2);background:linear-gradient(135deg,var(--surface) 0%,rgba(249,115,22,0.04) 100%);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem;">
+          <div class="rec-quote">"</div>
+          <div style="font-size:0.68rem;color:var(--orange);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;background:var(--orange-dim);border:1px solid rgba(249,115,22,0.2);padding:0.2rem 0.6rem;border-radius:100px;">LinkedIn · Verified</div>
+        </div>
+        <div class="rec-text">
+          I've had the pleasure of having Harvin in my Negotiation class, and he stands out right away: always prepared, always engaged, and always bringing positive energy to the room. What I particularly like is his approach to negotiation — he consistently looks for ways to expand the pie rather than just claim value. He stays calm under pressure, thinks clearly, and contributes in a way that makes others better. To put it simply: Harvin is a positive net contributor in any team or environment. I'd happily work with him again and recommend him 100%!
+        </div>
+        <div class="rec-author">
+          <div class="rec-avatar" style="background:linear-gradient(135deg,#1a2744,#3d5278);">MS</div>
+          <div>
+            <div class="rec-name">Michal Szymanski</div>
+            <div class="rec-role">Clinical Associate Professor of Business Administration · Gies, UIUC · March 26, 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REAL: Ismail Kirci -->
+      <div class="rec-card" style="border-color:rgba(45,212,191,0.2);background:linear-gradient(135deg,var(--surface) 0%,rgba(45,212,191,0.04) 100%);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem;">
+          <div class="rec-quote">"</div>
+          <div style="font-size:0.68rem;color:var(--teal);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;background:var(--teal-dim);border:1px solid rgba(45,212,191,0.2);padding:0.2rem 0.6rem;border-radius:100px;">LinkedIn · Verified</div>
+        </div>
+        <div class="rec-text">
+          Among a cohort of approximately 100 students, Harvin distinguished himself as one of the top performers in the class. His project report on the planning and execution of a college festival stood out for its depth, structure, and practical relevance — effectively applying a wide range of project management tools and frameworks, with analysis that was both comprehensive and well-organised. What impressed me most was his participation in the Gies Supply Chain Case Competition: his team's presentation was engaging, interactive, and delivered with confidence. Rather than relying on purely hypothetical solutions, they grounded their analysis in how a real business would operate under practical constraints — highlighting Harvin's strong analytical mindset and professional maturity. He stands out for his self-motivation, interpersonal skills, and ability to translate theory into actionable plans. I strongly believe Harvin will bring the same level of dedication, insight, and professionalism to any professional endeavour he pursues.
+        </div>
+        <div class="rec-author">
+          <div class="rec-avatar" style="background:linear-gradient(135deg,#1a6b6b,#2dd4bf);">IK</div>
+          <div>
+            <div class="rec-name">Ismail Kirci</div>
+            <div class="rec-role">Teaching Assistant Professor · University of Illinois Urbana-Champaign · April 26, 2026</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- CASE STUDY DEEP DIVE -->
+<section id="casestudy" style="background:var(--bg);">
+  <div class="section-inner">
+    <div class="section-label">09 — Case Study</div>
+    <h2><em>Beyond Dollars</em> — Gies Supply Chain Case Competition</h2>
+    <p style="color:var(--text);font-size:0.97rem;margin-bottom:2rem;max-width:700px;line-height:1.7;">
+      1st Place finish at the Gies College of Business Supply Chain Case Competition, sponsored by <strong style="color:var(--text)">Echo Global Logistics</strong>. Our team — Harvin Patel, Rushabh Jain & Hasnain Khan — analysed 22,000+ rows of real freight data and delivered a $475K savings strategy in under 72 hours.
+    </p>
+
+    <!-- Key results bar -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:3rem;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;text-align:center;border-top:2px solid var(--orange);">
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:2rem;font-weight:800;color:var(--white);">$475K</div>
+        <div style="font-size:0.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem;">Projected Freight Savings</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;text-align:center;border-top:2px solid var(--teal);">
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:2rem;font-weight:800;color:var(--white);">36%</div>
+        <div style="font-size:0.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem;">Reduction in Shipment Count</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;text-align:center;border-top:2px solid var(--orange);">
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:2rem;font-weight:800;color:var(--white);">~20T</div>
+        <div style="font-size:0.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem;">CO₂ Reduction</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;text-align:center;border-top:2px solid var(--teal);">
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:2rem;font-weight:800;color:var(--white);">22K+</div>
+        <div style="font-size:0.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem;">Rows of Data Analysed</div>
+      </div>
+    </div>
+
+    <!-- Strategy breakdown -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem;">
+      <!-- Left: approach -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;">
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--orange);margin-bottom:1.2rem;padding-bottom:0.7rem;border-bottom:1px solid var(--border);">The Strategic Framework</div>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="background:var(--orange-dim);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:0.4rem 0.7rem;font-family:'Segoe UI',system-ui,sans-serif;font-weight:800;font-size:0.85rem;color:var(--orange);flex-shrink:0;">70%</div>
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Minimise Freight Spend</div>
+              <div style="font-size:0.84rem;color:var(--muted);margin-top:0.1rem;">TL conversion · LTL consolidation · 3-day dispatch window</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="background:var(--teal-dim);border:1px solid rgba(20,184,166,0.2);border-radius:6px;padding:0.4rem 0.7rem;font-family:'Segoe UI',system-ui,sans-serif;font-weight:800;font-size:0.85rem;color:var(--teal);flex-shrink:0;">20%</div>
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Enhance Carrier Resilience</div>
+              <div style="font-size:0.84rem;color:var(--muted);margin-top:0.1rem;">Organic shift strategy · HHI rebalancing · avoid paper assumptions</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.7rem;font-family:'Segoe UI',system-ui,sans-serif;font-weight:800;font-size:0.85rem;color:var(--muted);flex-shrink:0;">10%</div>
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Minimise Carbon Emissions</div>
+              <div style="font-size:0.84rem;color:var(--muted);margin-top:0.1rem;">Hub-and-spoke network · multi-stop routing ≤100mi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: routing legs -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;">
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--orange);margin-bottom:1.2rem;padding-bottom:0.7rem;border-bottom:1px solid var(--border);">3-Road Routing Engine</div>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="padding:0.9rem;background:var(--bg);border-radius:8px;border-left:3px solid var(--orange);">
+            <div style="font-size:0.84rem;font-weight:600;color:var(--text);">Road 1 — Direct Consolidation</div>
+            <div style="font-size:0.86rem;color:var(--muted);margin-top:0.2rem;">Same origin → same destination city · 15% cost ↓</div>
+          </div>
+          <div style="padding:0.9rem;background:var(--bg);border-radius:8px;border-left:3px solid var(--teal);">
+            <div style="font-size:0.84rem;font-weight:600;color:var(--text);">Road 2 — Multi-Stop Delivery</div>
+            <div style="font-size:0.86rem;color:var(--muted);margin-top:0.2rem;">Dest cities within 100mi · 2–4 stops per route · 15% cost ↓</div>
+          </div>
+          <div style="padding:0.9rem;background:var(--bg);border-radius:8px;border-left:3px solid var(--muted2);">
+            <div style="font-size:0.84rem;font-weight:600;color:var(--text);">Road 3 — Hub & Spoke</div>
+            <div style="font-size:0.86rem;color:var(--muted);margin-top:0.2rem;">4 hubs (incl. Belle Vernon, PA) · TL-only · avoids $8–12M hub cost</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- My role + deck CTA -->
+    <div style="background:linear-gradient(135deg,var(--surface) 0%,rgba(249,115,22,0.05) 100%);border:1px solid rgba(249,115,22,0.2);border-radius:12px;padding:2rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--orange);margin-bottom:0.6rem;">My Role — Lead Strategist</div>
+        <p style="font-size:0.96rem;color:var(--text);line-height:1.7;max-width:520px;">
+          I led the overarching network transformation strategy and freight logic design. I owned the 3-road decision framework, the hub-and-spoke architecture, and the executive narrative that turned 22,000+ rows of data into a clear, actionable recommendation. The judges recognised the solution for <strong style="color:var(--text)">simplicity, usability, and stakeholder alignment</strong> over raw technical complexity.
+        </p>
+      </div>
+      <a href="BEYOND_DOLLARS.pptx" download style="display:inline-flex;align-items:center;gap:0.6rem;background:var(--orange);color:#000;font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:600;padding:0.8rem 1.6rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+        ⬇ Download Full Deck
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- PROJECT NEXUS SECTION -->
+<section id="nexus" style="background:var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">10 — Project Nexus</div>
+    <h2>Organiser — Gies's First <em>Interdisciplinary</em> Case Competition</h2>
+    <p style="color:var(--text);font-size:0.97rem;margin-bottom:2rem;max-width:780px;line-height:1.75;">
+      Project Nexus wasn't just a competition I participated in — <strong style="color:var(--white)">I built it from scratch.</strong>
+      As co-organiser with Rushabh Jain and Hasnain Khan, I conceived, authored, and ran Gies College of Business's inaugural
+      interdisciplinary case competition — a full-day hackathon built around a <strong style="color:var(--orange)">$15M Walmart Smart Commerce scenario</strong>
+      set in Champaign County, Illinois. Drone delivery, dark-store operations, three-audience demand modelling, auction mechanics,
+      and a complete CapEx/OpEx framework — all designed by us.
+    </p>
+
+    <!-- Event stats bar -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:2.5rem;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;border-top:2px solid var(--teal);">
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:1.8rem;font-weight:800;color:var(--white);">10</div>
+        <div style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem;">Teams</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;border-top:2px solid var(--orange);">
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:1.8rem;font-weight:800;color:var(--white);">$15M</div>
+        <div style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem;">Budget Constraint</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;border-top:2px solid var(--teal);">
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:1.8rem;font-weight:800;color:var(--white);">4</div>
+        <div style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem;">Faculty Judges</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;border-top:2px solid var(--orange);">
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:1.8rem;font-weight:800;color:var(--white);">3</div>
+        <div style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem;">Revenue Streams</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;border-top:2px solid var(--teal);">
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:1.8rem;font-weight:800;color:var(--white);">68K</div>
+        <div style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem;">Addressable HH in Case</div>
+      </div>
+    </div>
+
+    <!-- What I built — full width -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:1.5rem;">
+      <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:1.4rem;padding-bottom:0.7rem;border-bottom:1px solid var(--border);">What I Designed & Built — From Scratch</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div style="display:flex;gap:0.8rem;align-items:flex-start;">
+          <div style="color:var(--teal);font-size:0.9rem;flex-shrink:0;margin-top:0.1rem;">→</div>
+          <div style="font-size:0.92rem;color:var(--text);">Full case document — 8 sections, 550+ lines, covering story, data, auction, 5-step flow</div>
+        </div>
+        <div style="display:flex;gap:0.8rem;align-items:flex-start;">
+          <div style="color:var(--teal);font-size:0.9rem;flex-shrink:0;margin-top:0.1rem;">→</div>
+          <div style="font-size:0.92rem;color:var(--text);">Resource auction system — 6 biddable assets with strategic tradeoffs (200 credits/team)</div>
+        </div>
+        <div style="display:flex;gap:0.8rem;align-items:flex-start;">
+          <div style="color:var(--teal);font-size:0.9rem;flex-shrink:0;margin-top:0.1rem;">→</div>
+          <div style="font-size:0.92rem;color:var(--text);">Three-audience demand model — 68,000 HH, 3 penetration paths (2%, 5%, 9%), drone order calculator</div>
+        </div>
+        <div style="display:flex;gap:0.8rem;align-items:flex-start;">
+          <div style="color:var(--teal);font-size:0.9rem;flex-shrink:0;margin-top:0.1rem;">→</div>
+          <div style="font-size:0.92rem;color:var(--text);">Parallel SC + Marketing tracks — graded rubric: Finance 35% · Ops 30% · Marketing 20% · Analytics 15%</div>
+        </div>
+        <div style="display:flex;gap:0.8rem;align-items:flex-start;">
+          <div style="color:var(--teal);font-size:0.9rem;flex-shrink:0;margin-top:0.1rem;">→</div>
+          <div style="font-size:0.92rem;color:var(--text);">Full CapEx/OpEx model — $2.195M fixed OpEx, drone fleet costing, AMR buildout, scenario stress-tests</div>
+        </div>
+        <div style="display:flex;gap:0.8rem;align-items:flex-start;">
+          <div style="color:var(--teal);font-size:0.9rem;flex-shrink:0;margin-top:0.1rem;">→</div>
+          <div style="font-size:0.92rem;color:var(--text);">Event logistics — judge recruitment, mentor coordination, Gies admin liaison, day-of execution</div>
+        </div>
+      </div>
+    </div>
+    <!-- Judges strip -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.8rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+      <div style="font-size:0.78rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:0.1em;flex-shrink:0;">Faculty Judges & Mentors</div>
+      <div style="font-size:0.88rem;color:var(--text);">Prof. Michal Szymanski · Prof. Aric Rindfleisch · Prof. Michael Roach · Prof. Ismail Kirci</div>
+      <div style="font-size:0.82rem;color:var(--muted);margin-left:auto;">Mentors: Prof. June-Young Kim · Prof. Michal Szymanski</div>
+    </div>
+
+    <!-- Co-organisers callout -->
+    <div style="background:linear-gradient(135deg,var(--surface) 0%,rgba(20,184,166,0.07) 100%);border:1px solid rgba(20,184,166,0.2);border-radius:10px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+      <div style="font-size:1.4rem;">🚀</div>
+      <div>
+        <div style="font-size:0.82rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.3rem;">Co-Organisers</div>
+        <div style="font-size:0.92rem;color:var(--text);">Built with <strong style="color:var(--white)">Rushabh Jain</strong> and <strong style="color:var(--white)">Hasnain Khan</strong> — the same team behind the Echo Global Logistics case competition win. Team synergy ++</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- GIES BUILD-A-THON -->
+<section id="buildathon" style="background:var(--bg);">
+  <div class="section-inner">
+    <div class="section-label">11 — Gies Build-A-Thon</div>
+    <h2>Built an AI Agent in <em>24 Hours</em></h2>
+    <p style="color:var(--text);font-size:0.97rem;margin-bottom:1.5rem;max-width:740px;line-height:1.75;">
+      At the <strong style="color:var(--white)">Gies Build-A-Thon</strong>, my team had 24 hours, a lot of caffeine, and a challenge to push the boundaries of <strong style="color:var(--orange)">Microsoft Copilot Studio</strong>. We built <strong style="color:var(--white)">Market Matrix</strong> — a fully functional AI-powered campaign manager — without writing a single line of hard code. We had to think laterally, lean into the Microsoft ecosystem, and orchestrate a unified experience from scratch.
+    </p>
+
+    <div style="margin-bottom: 2.5rem;">
+      <a href="https://harvinpatel.github.io/market-matrix-dashboard/" target="_blank" class="btn-primary" style="font-size: 0.9rem; padding: 0.65rem 1.5rem;">
+        ↗ Open Market Matrix Agent Dashboard
+      </a>
+    </div>
+
+    <!-- What it does -->
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2rem;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.4rem;border-left:3px solid var(--orange);">
+        <div style="font-size:0.82rem;font-weight:700;color:var(--orange);margin-bottom:0.4rem;">📈 Real-Time Intelligence</div>
+        <div style="font-size:0.9rem;color:var(--text);line-height:1.6;">Daily Brief that proactively flags campaign risks and tracks deadlines — no manual checking.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.4rem;border-left:3px solid var(--teal);">
+        <div style="font-size:0.82rem;font-weight:700;color:var(--teal);margin-bottom:0.4rem;">🌍 Geo & Performance Insights</div>
+        <div style="font-size:0.9rem;color:var(--text);line-height:1.6;">Campaign effectiveness broken down by region to optimise budget allocation in real time.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.4rem;border-left:3px solid var(--orange);">
+        <div style="font-size:0.82rem;font-weight:700;color:var(--orange);margin-bottom:0.4rem;">💸 Integrated Campaign Finance</div>
+        <div style="font-size:0.9rem;color:var(--text);line-height:1.6;">Built-in spend tracker — an "inbuilt Splitwise" for campaigns. Who to pay, how much, and when.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.4rem;border-left:3px solid var(--teal);">
+        <div style="font-size:0.82rem;font-weight:700;color:var(--teal);margin-bottom:0.4rem;">📧 Instant Escalation</div>
+        <div style="font-size:0.9rem;color:var(--text);line-height:1.6;">"Raise a Concern" auto-drafts stakeholder emails ready to send directly from Outlook — one click escalation.</div>
+      </div>
+    </div>
+
+    <!-- What's next + team -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.8rem;">
+        <div style="font-size:0.78rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);">🔭 What Can Be Added Next</div>
+        <div style="display:flex;flex-direction:column;gap:0.7rem;">
+          <div style="display:flex;gap:0.7rem;align-items:flex-start;">
+            <div style="color:var(--orange);flex-shrink:0;">→</div>
+            <div style="font-size:0.9rem;color:var(--text);">Automatic email screening — AI triages incoming campaign feedback and classifies by urgency</div>
+          </div>
+          <div style="display:flex;gap:0.7rem;align-items:flex-start;">
+            <div style="color:var(--orange);flex-shrink:0;">→</div>
+            <div style="font-size:0.9rem;color:var(--text);">Airtable connection — live sync of campaign data into a structured base for reporting and handoff</div>
+          </div>
+          <div style="display:flex;gap:0.7rem;align-items:flex-start;">
+            <div style="color:var(--orange);flex-shrink:0;">→</div>
+            <div style="font-size:0.9rem;color:var(--text);">CRM integration — auto-log campaign touchpoints directly into Salesforce or HubSpot</div>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.8rem;">
+        <div style="font-size:0.78rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);">👥 Team</div>
+        <div style="font-size:0.92rem;color:var(--text);line-height:1.8;">
+          <strong style="color:var(--white)">Harvin Patel</strong> · Rushabh Jain · Hasnain Khan · Medhovarsh Bayyapureddi
+        </div>
+        <div style="margin-top:0.8rem;font-size:0.82rem;color:var(--muted);">Mentored by Lindsey Savoie Halfar</div>
+        <div style="margin-top:0.4rem;font-size:0.82rem;color:var(--muted);">Organised by Keshav Dalmia, Ashleyn Castelino & team · Guided by Prof. Vishal Sachdev</div>
+        <div style="margin-top:1rem;">
+          <span style="font-size:0.75rem;background:var(--orange-dim);color:var(--orange);border:1px solid rgba(251,140,58,0.2);padding:0.2rem 0.6rem;border-radius:100px;font-weight:600;">Microsoft Copilot Studio</span>
+          <span style="font-size:0.75rem;background:var(--teal-dim);color:var(--teal);border:1px solid rgba(45,212,191,0.2);padding:0.2rem 0.6rem;border-radius:100px;font-weight:600;margin-left:0.4rem;">Generative AI</span>
+          <span style="font-size:0.75rem;background:var(--surface2);color:var(--muted);border:1px solid var(--border);padding:0.2rem 0.6rem;border-radius:100px;font-weight:600;margin-left:0.4rem;">No-Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMIC TRANSCRIPT -->
+<section id="transcript" style="background:var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">12 — Academics</div>
+    <h2>MS Technology Management — <em>Gies, UIUC</em></h2>
+    <p style="color:var(--text);font-size:0.97rem;margin-bottom:2.5rem;max-width:640px;line-height:1.7;">
+      Unofficial transcript · Graduate College · University of Illinois Urbana-Champaign.<br>
+      Cumulative GPA <strong style="color:var(--white)">3.91 / 4.0</strong> after Fall 2025 with 6 further courses in progress Spring 2026.
+    </p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+
+      <!-- Completed -->
+      <div>
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--orange);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;">
+          ✓ Completed — Fall 2025
+          <span style="background:var(--orange-dim);border:1px solid rgba(249,115,22,0.2);color:var(--orange);font-size:0.68rem;padding:0.15rem 0.5rem;border-radius:100px;">GPA 3.91</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;">
+          <!-- each course row -->
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);">
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Accounting & Finance for Managers</div>
+              <div style="font-size:0.82rem;color:var(--muted);">ACCY 593 · 4 credit hours</div>
+            </div>
+            <div style="font-family:'Segoe UI',system-ui,sans-serif;font-weight:800;font-size:1rem;color:var(--white);">A−</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);">
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Leadership and Teams</div>
+              <div style="font-size:0.82rem;color:var(--muted);">BADM 508 · 2 credit hours</div>
+            </div>
+            <div style="font-family:'Segoe UI',system-ui,sans-serif;font-weight:800;font-size:1rem;color:var(--white);">A</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);">
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Communication Strategy in Business</div>
+              <div style="font-size:0.82rem;color:var(--muted);">BADM 513 · 2 credit hours</div>
+            </div>
+            <div style="font-family:'Segoe UI',system-ui,sans-serif;font-weight:800;font-size:1rem;color:var(--white);">A</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);">
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Managing Innovation</div>
+              <div style="font-size:0.82rem;color:var(--muted);">BADM 514 · 2 credit hours</div>
+            </div>
+            <div style="font-family:'Segoe UI',system-ui,sans-serif;font-weight:800;font-size:1rem;color:var(--white);">A</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);">
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Marketing Management</div>
+              <div style="font-size:0.82rem;color:var(--muted);">BADM 520 · 2 credit hours</div>
+            </div>
+            <div style="font-family:'Segoe UI',system-ui,sans-serif;font-weight:800;font-size:1rem;color:var(--orange);">A+</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);">
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Operations Management</div>
+              <div style="font-size:0.82rem;color:var(--muted);">BADM 567 · 2 credit hours</div>
+            </div>
+            <div style="font-family:'Segoe UI',system-ui,sans-serif;font-weight:800;font-size:1rem;color:var(--white);">A</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);">
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Analytics for Management Decision-Making</div>
+              <div style="font-size:0.82rem;color:var(--muted);">BADM 579 · 2 credit hours</div>
+            </div>
+            <div style="font-family:'Segoe UI',system-ui,sans-serif;font-weight:800;font-size:1rem;color:var(--orange);">A+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- In Progress -->
+      <div>
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;">
+          ⏳ In Progress — Spring 2026
+          <span style="background:var(--teal-dim);border:1px solid rgba(20,184,166,0.2);color:var(--teal);font-size:0.68rem;padding:0.15rem 0.5rem;border-radius:100px;">18 credit hours</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);opacity:1;">
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Negotiation</div>
+              <div style="font-size:0.82rem;color:var(--muted);">BADM 516 · 4 credit hours</div>
+            </div>
+            <div style="font-size:0.7rem;color:var(--teal);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">In Progress</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);opacity:1;">
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">New Product Development</div>
+              <div style="font-size:0.82rem;color:var(--muted);">BADM 525 · 4 credit hours</div>
+            </div>
+            <div style="font-size:0.7rem;color:var(--teal);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">In Progress</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);opacity:1;">
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Brand Management</div>
+              <div style="font-size:0.82rem;color:var(--muted);">BADM 527 · 4 credit hours</div>
+            </div>
+            <div style="font-size:0.7rem;color:var(--teal);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">In Progress</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);opacity:1;">
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Technology Strategy</div>
+              <div style="font-size:0.82rem;color:var(--muted);">BADM 543 · 2 credit hours</div>
+            </div>
+            <div style="font-size:0.7rem;color:var(--teal);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">In Progress</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);opacity:1;">
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Topics in Business Intelligence</div>
+              <div style="font-size:0.82rem;color:var(--muted);">BADM 557 · 2 credit hours</div>
+            </div>
+            <div style="font-size:0.7rem;color:var(--teal);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">In Progress</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);opacity:1;">
+            <div>
+              <div style="font-size:0.88rem;font-weight:500;color:var(--text);">Project Management</div>
+              <div style="font-size:0.82rem;color:var(--muted);">BADM 589 · 2 credit hours</div>
+            </div>
+            <div style="font-size:0.7rem;color:var(--teal);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">In Progress</div>
+          </div>
+        </div>
+
+        <!-- GPA summary card -->
+        <div style="margin-top:1.2rem;padding:1.2rem 1.4rem;background:linear-gradient(135deg,var(--surface) 0%,rgba(249,115,22,0.06) 100%);border:1px solid rgba(249,115,22,0.2);border-radius:10px;display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <div style="font-size:0.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Cumulative GPA</div>
+            <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:2rem;font-weight:800;color:var(--white);line-height:1.1;">3.91 <span style="font-size:0.9rem;color:var(--muted)">/4.0</span></div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:0.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Total Hours</div>
+            <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:1.6rem;font-weight:800;color:var(--teal);line-height:1.1;">34</div>
+            <div style="font-size:0.7rem;color:var(--muted);">credits completed + in progress</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="justify-content:center">13 — Contact</div>
+    <h2>Let's <em>build</em> something together</h2>
+    <p class="contact-sub">
+      I'm actively exploring full-time roles starting <strong>May/June 2026</strong> in supply chain analytics, operations, technical marketing, and marketing operations.<br>
+      STEM-OPT eligible — <strong>3 years U.S. work authorization, no sponsorship needed</strong>.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:harvinpatel@gmail.com" class="contact-link primary">
+        ✉ harvinpatel@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/harvinpatel" target="_blank" class="contact-link">
+        💼 LinkedIn
+      </a>
+      <a href="tel:+12175501402" class="contact-link">
+        📱 Call
+      </a>
+      <a href="sms:+12175501402" class="contact-link">
+        💬 Text
+      </a>
+      <a href="https://wa.me/12175501402" target="_blank" class="contact-link">
+        🟢 WhatsApp
+      </a>
+      <a href="harvin_resume.pdf" target="_blank" class="contact-link">
+        ⬇ Resume PDF
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Harvin Patel — Built for recruiters, designed with intent.</div>
+  <div>Champaign, IL · STEM-OPT Eligible · Available May 2026</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Close mobile nav on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('nav-open');
+    });
+  });
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelecto
